@@ -1,17 +1,38 @@
 import { useState } from 'react'
-import './App.css'
-import { IconContext } from 'react-icons'
-import { FaBeer } from 'react-icons/fa'
-import { AiFillFacebook } from 'react-icons/ai'
-import { BsFacebook } from 'react-icons/bs'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
+  const notify = () => {
+    toast('Default Notification !')
+
+    toast.success('Success Notification !', {
+      position: 'top-center',
+    })
+
+    toast.error('Error Notification !', {
+      position: 'top-left',
+    })
+
+    toast.warn('Warning Notification !', {
+      position: 'bottom-left',
+    })
+
+    toast.info('Info Notification !', {
+      position: 'bottom-center',
+    })
+
+    toast('Custom Style Notification with css class!', {
+      position: 'bottom-right',
+      className: 'foo-bar',
+    })
+  }
+
   return (
-    <IconContext.Provider value={{ color: 'green', size: '5rem' }}>
-      {' '}
-      Lets go for a <FaBeer />? <AiFillFacebook />
-      <BsFacebook color='red' />
-    </IconContext.Provider>
+    <>
+      <button onClick={notify}>Notify</button>;
+      <ToastContainer />
+    </>
   )
 }
 
