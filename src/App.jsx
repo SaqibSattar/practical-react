@@ -1,27 +1,22 @@
-import { useState } from 'react'
-import Modal from 'react-modal';
-
-
-// Make sure to bind modal to your appElement
-Modal.setAppElement('#root');
+import { useState } from "react";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css"; // optional
 
 function App() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
   return (
-    <div>
-      <button onClick={() => { setModalIsOpen(true)}}>Open Modal</button>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={() => { setModalIsOpen(false)}}
-        contentLabel="Example Modal"
-      >
-        <h2>Hello</h2>
-        <button onClick={() => { setModalIsOpen(false)}}>close</button>
-        <div>I am a modal</div>
-      </Modal>
+    <>
+    <div style={{ paddingBottom: '20px'}}>
+    <Tippy arrow={false} delay={1000} content="Basic Tooltip">
+    <button>Hover me</button>
+    </Tippy>
     </div>
+    <div style={{ paddingBottom: '20px'}}>
+    <Tippy placement="bottom-start" content={<span style={{ color: "orange" }}>Basic Tooltip with color</span> }>
+    <button>Hover me</button>
+    </Tippy>
+    </div>
+    </>
   );
 }
 
-export default App
+export default App;
