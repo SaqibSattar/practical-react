@@ -1,33 +1,38 @@
-import React from 'react';
-import { useIdleTimer } from 'react-idle-timer';
+import React, { useState } from "react";
+import { ChromePicker, SketchPicker, SwatchesPicker } from "react-color";
 
 function App() {
-  const handleOnIdle = () => {
-    // Perform actions when the user becomes idle
-    console.log('User is idle');
-  };
-
-  const handleOnActive = () => {
-    // Perform actions when the user becomes active again
-    console.log('User is active');
-  };
-
-  const { getRemainingTime, getLastActiveTime } = useIdleTimer({
-    timeout: 1000 * 60 * 5, // 5 minutes in milliseconds
-    onIdle: handleOnIdle,
-    onActive: handleOnActive,
-    debounce: 500,
-  });
+  const [color, setColor] = useState("#fff");
+  const [secondColor, setSecondColor] = useState("#fff");
+  const [thirdColor, setThirdColor] = useState("#fff");
 
   return (
     <div>
-      <h1>Your App</h1>
+      <ChromePicker
+        color={color}
+        onChange={(updateColor) => {
+          console.log(updateColor);
+          setColor(updateColor.hex);
+        }}
+      />
+      <p>Color one is: {color}</p>
+      <SketchPicker
+        color={secondColor}
+        onChange={(updateColor) => {
+          console.log(updateColor);
+          setSecondColor(updateColor.hex);
+        }}
+      />
+      <p>Color Two is: {secondColor}</p>
+      <SketchPicker
+      color={thirdColor}
+      onChange={(updateColor) => {
+        console.log(updateColor);
+        setThirdColor(updateColor.hex);
+      }}
+    />
+    <p>Color Three is: {thirdColor}</p>
 
-      {/* Display remaining time */}
-      <p>Remaining Time: {getRemainingTime()}</p>
-
-      {/* Display last active time */}
-      <p>Last Active Time: {new Date(getLastActiveTime()).toLocaleTimeString()}</p>
     </div>
   );
 }
