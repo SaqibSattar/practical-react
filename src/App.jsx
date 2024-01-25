@@ -1,41 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
-
-import { BounceLoader, BarLoader, BeatLoader, MoonLoader } from "react-spinners";
+import LineChart from "./components/LineChart";
+import BarChart from "./components/BarChart";
+import DoughnutChart from "./components/DoughnutChart";
 
 const App = () => {
   return (
     <div>
-    <BounceLoader
-        color={'blue'}
-        loading
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-      <BarLoader
-        color={'green'}
-        loading
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-      <BeatLoader
-        color={'orange'}
-        loading
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-      <MoonLoader
-        color={'black'}
-        loading
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      <LineChart />
+      <BarChart />
+      <DoughnutChart />
     </div>
-      
   );
 };
 
