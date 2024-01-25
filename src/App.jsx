@@ -1,22 +1,41 @@
 import React, { useState } from "react";
 import "./App.css";
 
-import ReactPlayer from "react-player";
+import { BounceLoader, BarLoader, BeatLoader, MoonLoader } from "react-spinners";
 
 const App = () => {
   return (
     <div>
-      <ReactPlayer 
-      controls
-      width="480px"
-      height="240px"
-      onReady={() => { console.log('onReady Callback')}}
-      onStart={() => { console.log('onStart Callback')}}
-      onPause={() => { console.log('onPause Callback')}}
-      onEnded={() => { console.log('onEnded Callback')}}
-      onError={() => { console.log('onError Callback')}}
-      url="https://www.youtube.com/watch?v=LXb3EKWsInQ" />
+    <BounceLoader
+        color={'blue'}
+        loading
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+      <BarLoader
+        color={'green'}
+        loading
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+      <BeatLoader
+        color={'orange'}
+        loading
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+      <MoonLoader
+        color={'black'}
+        loading
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
     </div>
+      
   );
 };
 
