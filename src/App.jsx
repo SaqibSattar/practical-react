@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
-import DatePicker from "react-datepicker";
+import React, { useState } from "react";
+import "./App.css";
 
-import "react-datepicker/dist/react-datepicker.css";
+import ReactPlayer from "react-player";
 
 const App = () => {
-  const [startDate, setStartDate] = useState(new Date());
   return (
-    <DatePicker 
-    selected={startDate} 
-    onChange={(date) => setStartDate(date)}
-    dateFormat='MM/dd/yyyy'
-    minDate={new Date()}
-    filterDate={date => date.getDay() !== 6 && date.getDay() !== 0}
-    isClearable={true}
-    showYearDropdown={true}
-    showMonthDropdown={true}
-    />
+    <div>
+      <ReactPlayer 
+      controls
+      width="480px"
+      height="240px"
+      onReady={() => { console.log('onReady Callback')}}
+      onStart={() => { console.log('onStart Callback')}}
+      onPause={() => { console.log('onPause Callback')}}
+      onEnded={() => { console.log('onEnded Callback')}}
+      onError={() => { console.log('onError Callback')}}
+      url="https://www.youtube.com/watch?v=LXb3EKWsInQ" />
+    </div>
   );
 };
 
